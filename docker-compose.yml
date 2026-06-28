@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis # API start hone se pehle redis start hona chahiye
+
+  redis:
+    image: redis:alpine
+    # Redis ko bahar expose karne ki zaroorat nahi hai, 
+    # API internally isse baat kar legi.
